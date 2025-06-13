@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>War</title>
     <link rel="stylesheet" href="style.css">
+    <script src="war.js" defer></script>
 </head>
 <body>
-    <div class="containerOne">
+    <section class="containerOne">
         <div class="gameTable">
             <div id="pOne" title="PlayerOne">
                 <button id="playButton" onclick="startRound()">
                     1
-                    <input id="pointP1" type="text" value="0" > </input> </button>
-                </div>
+                    <input id="pointP1" type="text" value="0" />
+                </button>
+            </div>
+
             <div id="pTwo">
                 <button id="playButton2" onclick="startRound()">
                     2
-                    <input id="pointP2" type="text" value="0"></input> </button>
-                </div>
+                    <input id="pointP2" type="text" value="0"/>
+                </button>
+            </div>
+
             <div id="gameBoard">
                 <input id="gameBoardP1" type="text"/>
                 <input id="outcome" type="text">
                 <input id="gameBoardP2" type="text"/>
-                </div>
-    </div>
-    </div>
-    <script src="war.js"></script>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

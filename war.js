@@ -1,13 +1,39 @@
 let boardP1 = document.getElementById("gameBoardP1");
 let boardP2 = document.getElementById("gameBoardP2");
-let player1 = document.getElementById("PlayButton");
-let player2 = document.getElementById("PlayButton2");
+
+let p1Deck = [];
+let p2Deck = [];
+
+let gameStarted = false;
+
+function generateDeck(playerDeck){
+    for (let i = 0; i < 26; i++)
+    {
+        playerDeck[i] = returnRandomValue();
+    }
+}
+
+function startGame()
+{
+    if (!gameStarted){
+        generateDeck(p1Deck);
+        generateDeck(p2Deck);
+        console.log("p1; " + p1Deck);
+        console.log("p2; " + p2Deck);
+        gameStarted = true;
+    }
+}
+
+function returnRandomValue(){
+    return Math.floor(Math.random() * 51) + 1;
+}
 
 function startRound() {
-    player1 = Math.floor(Math.random() * 53) + 1;
-        boardP1.value = player1;
-    player2 = Math.floor(Math.random() * 53) + 1;
-        boardP2.value = player2;
+    startGame();
+
+    boardP1.value = returnRandomValue();
+    boardP2.value = returnRandomValue();
+
     if (boardP1.value > boardP2.value) {
         outcome.value = String("Player 1 Wins");
     } else if (boardP1.value == boardP2.value) {
@@ -16,13 +42,16 @@ function startRound() {
     else {
         outcome.value = String("Player 2 Wins");
     }
-pointSystem();
+
+    pointSystem();
 }
 
 function pointSystem() {
     const outcome = document.getElementById("outcome");
+
     let pointP1 = document.getElementById("pointP1");
     let pointP2 = document.getElementById("pointP2");
+
     const win = 1;
 
  
@@ -35,3 +64,4 @@ function pointSystem() {
     else {  pointP2.value = Number(pointP2.value) + win;
     }
 }
+
