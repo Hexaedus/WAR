@@ -1,8 +1,8 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: rgba(182, 6, 6, 0.877);
-    height: 100vh;
-
+    background-color: rgba(112, 25, 25, 0.877);
+    height: 98vh;
+    align-content: center;
 }
 
 
@@ -79,7 +79,7 @@ body {
             justify-items: center;
             width: 51.5vw;
             height: 100px;
-            background-color: rgba(25, 1, 240, 0.582);
+            background-color: rgb(17, 3, 147);
             font-family: 'Courier New', Courier, monospace;
             font-size: 15pt;
             font-weight: bold;
@@ -95,7 +95,7 @@ body {
             border-radius: 5px;
             border: 0cap;
             height: 100px;
-            background-color: rgba(255, 0, 0, 0.596);
+            background-color: rgb(186, 1, 1);
             font-family: 'Courier New', Courier, monospace;
             font-size: 15pt;
             font-weight: bold;
