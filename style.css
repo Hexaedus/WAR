@@ -37,6 +37,31 @@ body {
         grid-row: 1;
         }
 
+        #pointP1 {
+            position: absolute;
+            width: 30px;
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15pt;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            border: 0;
+            margin: 25px;
+
+        }
+        #pointP2 {
+            position: absolute;
+            width: 30px;
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15pt;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            border: 0;
+            transform: translate(-70px, 23px);
+
+        }
+
 
 
     #gameBoard {
@@ -76,6 +101,21 @@ body {
             font-weight: bold;
             color: rgb(255, 255, 255);
             }
+
+        #outcome {
+            position: absolute;
+            align-self: center;
+            justify-self: center;
+            justify-items: center;
+            height: 30px;
+            border: 0;
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15pt;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+
+        }
 
 
 
