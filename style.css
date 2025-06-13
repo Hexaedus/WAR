@@ -53,7 +53,13 @@ body {
 
             justify-items: center;
             width: 51.5vw;
-            height: 80px;
+            height: 100px;
+            background-color: rgba(25, 1, 240, 0.582);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15pt;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            
             }
 
         #gameBoardP2 {
@@ -63,7 +69,12 @@ body {
             width: 51.5vw;
             border-radius: 5px;
             border: 0cap;
-            height: 80px;
+            height: 100px;
+            background-color: rgba(255, 0, 0, 0.596);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15pt;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
             }
 
 
