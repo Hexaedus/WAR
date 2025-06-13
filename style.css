@@ -14,7 +14,8 @@ body {
     background-color: green;
     box-shadow: 10px 10px 5px black;
     justify-self: center;
-    outline: auto;
+    outline: 10px outset rgb(161, 66, 2);
+    border-radius: 25px;
     }
 
 .containerOne div {
@@ -23,11 +24,10 @@ body {
     height: 80vh;
     grid-template-columns: 50px 52vw 50px;
     grid-template-rows: 80px 52vh 80px;
-    outline: 4px solid red;
-
     justify-content: space-around;
     align-content: center;
     margin: 0;
+    border-radius: 5px;
 }
 
     #pOne {
@@ -35,15 +35,15 @@ body {
         height: 80px;
         outline: 2px solid black;
         grid-row: 1;
-
         }
+
     #gameBoard {
-            outline: 2px solid black;
-            width: 52vw;
-            height: 52vh;
-            grid-row: 2 / span 2;
-            grid-column: 2 / span 2;
-            }
+        outline: 2px solid black;
+        width: 52vw;
+        height: 52vh;
+        grid-row: 2 / span 2;
+        grid-column: 2 / span 2;
+        }
 
     #pTwo {
         width: 50px;
@@ -52,5 +52,44 @@ body {
         grid-row: 3;
         grid-column: 3;
         }
+#playButton {
+            width: 50px;
+            height: 80px;
+            position: fixed;
+            background-color: rgba(41, 184, 41, 0.336);
+            border: 0cap;
+            transition-duration: 0.15s;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            font-weight: bolder;
+            }
 
+            :hover#playButton {
+            background-color: rgba(17, 0, 255, 0.562);
+            }
+            :active#playButton {
+            background-color: rgb(17, 0, 255);
+            transition-duration: 0s;
+            }
+#playButton2 { 
+            width: 50px;
+            height: 80px;
+            position: fixed;
+            background-color: rgba(41, 184, 41, 0.336);
+            border: 0cap;
+            transition-duration: 0;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            font-weight: bolder;
+            }
+
+            :hover#playButton2 {
+            background-color: rgba(255, 0, 0, 0.596);
+            }
+            :active#playButton2 {
+            background-color: rgb(255, 0, 0);
+            transition-duration: 0s;
+            }
     
