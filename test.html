@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Tests</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-results { margin-top: 20px; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .test-case { margin: 5px 0; }
+    </style>
+    <script src="war.js" defer></script>
+</head>
+<body>
+    <h1>Unit Test Results</h1>
+    <div id="test-results" class="test-results"></div>
+
+    <script>
+
+        // Simple testing framework
+        class SimpleTest {
+            constructor() {
+                this.results = [];
+                this.passed = 0;
+                this.failed = 0;
+            }
+
+            assertEquals(actual, expected, testName) {
+                if (actual === expected) {
+                    this.passed++;
+                    this.results.push(`✓ ${testName}: PASS`);
+                } else {
+                    this.failed++;
+                    this.results.push(`✗ ${testName}: FAIL - Expected: ${expected}, Got: ${actual}`);
+                }
+            }
+
+            assertTrue(condition, testName) {
+                if (condition) {
+                    this.passed++;
+                    this.results.push(`✓ ${testName}: PASS`);
+                } else {
+                    this.failed++;
+                    this.results.push(`✗ ${testName}: FAIL - Expected true, got false`);
+                }
+            }
+
+            assertFalse(condition, testName) {
+                if (!condition) {
+                    this.passed++;
+                    this.results.push(`✓ ${testName}: PASS`);
+                } else {
+                    this.failed++;
+                    this.results.push(`✗ ${testName}: FAIL - Expected false, got true`);
+                }
+            }
+
+            run() {
+                const resultsDiv = document.getElementById('test-results');
+                
+                this.results.forEach(result => {
+                    const div = document.createElement('div');
+                    div.className = 'test-case';
+                    div.className += result.includes('PASS') ? ' pass' : ' fail';
+                    div.textContent = result;
+                    resultsDiv.appendChild(div);
+                });
+
+                const summary = document.createElement('div');
+                summary.innerHTML = `<h3>Summary: ${this.passed} passed, ${this.failed} failed</h3>`;
+                summary.style.marginTop = '20px';
+                resultsDiv.appendChild(summary);
+
+                // Also log to console
+                console.log(`Tests completed: ${this.passed} passed, ${this.failed} failed`);
+            }
+        }
+
+        // Run your tests
+        const test = new SimpleTest();
+
+        // Test the add function
+        test.assertEquals(add(2, 3), 5, "add(2, 3) should equal 5");
+
+        // Test the multiply function
+        test.assertEquals(multiply(3, 4), 12, "multiply(3, 4) should equal 12");
+
+        // Test the isEven function
+        test.assertTrue(isEven(4), "isEven(4) should be true");
+
+        // Run all tests
+        test.run();
+    </script>
+</body>
+</html>
