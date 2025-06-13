@@ -35,4 +35,3 @@ function pointSystem() {
     else {  pointP2.value = Number(pointP2.value) + win;
     }
 }
-
