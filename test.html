@@ -82,7 +82,8 @@
         const test = new SimpleTest();
 
         // Test the add function
-        test.assertEquals(add(2, 3), 5, "add(2, 3) should equal 5");
+        test.assertEquals(endState(0), outcome.value == "Player 2 Wins!", "endstate(0) should return 'Player 2 Wins!'");
+        test.assertEquals(endState(52), outcome.value == "Player 1 Wins!", "endstate(1) should return 'Player 1 Wins!'");
 
         // Test the multiply function
         test.assertEquals(multiply(3, 4), 12, "multiply(3, 4) should equal 12");
