@@ -5,17 +5,13 @@ let player2 = document.getElementById("PlayButton2");
 
 function startRound() {
     player1 = Math.floor(Math.random() * 53) + 1;
-    boardP1.value = player1;
-
+        boardP1.value = player1;
     player2 = Math.floor(Math.random() * 53) + 1;
-    boardP2.value = player2;
-
+        boardP2.value = player2;
     if (boardP1.value > boardP2.value) {
-            outcome.value = String("Player 1 Wins");
-
+        outcome.value = String("Player 1 Wins");
     } else if (boardP1.value == boardP2.value) {
         outcome.value = String("WARRR!")
-
     }
     else {
         outcome.value = String("Player 2 Wins");
