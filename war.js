@@ -35,6 +35,7 @@ function returnRandomDeckIndex(deck){//parameter for use within this function on
 
 function startRound() {  
     startGame();
+    runTests();
 
     let p1DeckIndex = returnRandomDeckIndex(p1Deck);
     let p2DeckIndex = returnRandomDeckIndex(p2Deck);
@@ -63,14 +64,18 @@ function startRound() {
 
 function endState(deckLength) {
     if (deckLength <= 0) {
-        outcome.value = "Player 2 Wins!";
+        outcome.value = "Player 2 Wins The Game!";
         gameStarted = false;
+        return "Player 2 wins"
 
     }
     if (deckLength >= 52){
-        outcome.value = "Player 1 Wins!";
+        outcome.value = "Player 2 Wins The Game!";
         gameStarted = false;
+        return "Player 1 wins"
     }
+
+    return "no winner"
 
     // check deck array length?
     // if either array length is 0/52, end state
@@ -96,10 +101,40 @@ function pointSystem() {//void return
     }
 }
 
-// test
+// Test Harness
+function runTests() {
+    let passed = 0;
+    let failed = 0;
+    
+    function test(name, fn) {
+        try {
+            fn();
+            console.log(`✓ ${name}`);
+            passed++;
+        } catch (error) {
+            console.log(`✗ ${name}: ${error.message}`);
+            failed++;
+        }
+    }
+    
+    function assertEquals(actual, expected) {
+        if (actual !== expected) {
+            throw new Error(`Expected ${expected}, got ${actual}`);
+        }
+    }
+    
+    // Your tests here
+    test("Player 2 Wins", () => {
+        assertEquals(endState(0), "Player 2 wins");
+    });
 
-it('createPublicationYearLabel: a range of years', () => {
-    assertEqual( true
-      
-    );
-  });
+    test("Player 1 Wins", () => {
+        assertEquals(endState(52), "Player 1 wins");
+    });
+
+    test("No Winner", () => {
+        assertEquals(endState(36), "no winner");
+    });
+    
+    console.log(`\nSummary: ${passed} passed, ${failed} failed`);
+}
