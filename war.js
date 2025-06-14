@@ -1,20 +1,25 @@
 let boardP1 = document.getElementById("gameBoardP1");
 let boardP2 = document.getElementById("gameBoardP2");
+let warResult = document.getElementById("warResult")
 
 let p1Deck = [];
 let p2Deck = [];
 
 let gameStarted = false;
+let roundStarted = false;
+let warStarted = false;
 
 function generateDeck(playerDeck){
     for (let i = 0; i < 26; i++)
     {
         playerDeck[i] = returnRandomValue();
+        // issue, this code does randomly generate numbers but it does...
+        // ... not check against itself to make sure there are no repeats.
     }
 }
 
 function returnRandomValue(){
-    return Math.floor(Math.random() * 51) + 1;
+    return Math.floor(Math.random() * 5) + 1; // 51 * 1 = 51 + 1 = 52
 }
 
 function startGame()
@@ -24,6 +29,8 @@ function startGame()
         generateDeck(p2Deck);
         console.log("p1; " + p1Deck);
         console.log("p2; " + p2Deck);
+        pointP1.value = 0;
+        pointP2.value = 0;
         gameStarted = true;
     }
 }
@@ -36,31 +43,72 @@ function returnRandomDeckIndex(deck){//parameter for use within this function on
 function startRound() {  
     startGame();
     runTests();
-
+    
     let p1DeckIndex = returnRandomDeckIndex(p1Deck);
     let p2DeckIndex = returnRandomDeckIndex(p2Deck);
 
     boardP1.value = p1Deck[p1DeckIndex];
     boardP2.value = p2Deck[p2DeckIndex];
 
+    roundStarted = true;
+
     if (boardP1.value > boardP2.value) {
         outcome.value = String("Player 1 Wins");
-        console.log("p1Deck - " + p1Deck);
-        console.log("p2Deck - " + p2Deck);
         p1Deck.push(p2Deck[p2DeckIndex]);
         p2Deck.splice(p2DeckIndex, 1);
-        console.log("p1Deck - " + p1Deck);
-        console.log("p2Deck - " + p2Deck);
-    } else if (boardP1.value == boardP2.value) {
-        outcome.value = String("WARRR!")
+        console.log(p1Deck)
+        console.log(p2Deck)
+    } else if (boardP1.value < boardP2.value) {
+        outcome.value = String("Player 2 Wins");
+        console.log(p1Deck)
+        console.log(p2Deck)
+        
     }
     else {
-        outcome.value = String("Player 2 Wins");
+        outcome.value = String("WARRR!")
+        warStart();
     }
 
     pointSystem();
     endState(p1Deck.length);
 }
+
+function warStart() {
+    //initialise in startRound
+    // 3 cards instead of 1
+    // (do later) 3 hidden cards, click on one, highest wins.
+    //splice/push the losers cards to winners deck
+    roundStarted = false;
+    warStarted = true;
+    if (warStarted = true, boardP1.value > boardP2.value) {
+        warStarted = true;
+        warResult.value = "player 1 wins the war"
+        p1Deck.push(p2Deck[p2DeckIndex]);
+        p2Deck.splice(p2DeckIndex, 3);
+        console.log(p1Deck);
+        console.log(p2Deck);
+        warStarted = false;
+        roundStarted = true;
+        startRound();
+    } else if (warStarted = true, boardP1.value < boardP2.value) {
+        warStarted = true;
+        warResult.value = "player 2 wins the war"
+        p2Deck.push(p1Deck[p1DeckIndex]);
+        p1Deck.splice(p1DeckIndex, 3);
+        console.log(p1Deck);
+        console.log(p2Deck);
+        warStarted = false;
+        roundStarted = true;
+        startRound();
+    }
+    // else {
+    //     outcome.value = "restart the war"
+    //     warStarted = true;
+    //     warStart()
+    // }
+    warStarted = false;
+}
+
 
 function endState(deckLength) {
     if (deckLength <= 0) {
@@ -74,7 +122,7 @@ function endState(deckLength) {
         gameStarted = false;
         return "Player 1 wins"
     }
-
+    gameStarted = true;
     return "no winner"
 
     // check deck array length?

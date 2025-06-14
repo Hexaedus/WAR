@@ -2,6 +2,7 @@ body {
     font-family: 'Courier New', Courier, monospace;
     background-color: rgba(112, 25, 25, 0.877);
     height: 98vh;
+    display: grid;
     align-content: center;
 }
 
@@ -15,6 +16,7 @@ body {
     box-shadow: 10px 10px 5px black;
     justify-self: center;
     outline: 10px outset rgb(161, 66, 2);
+    border: 10px inset rgb(165, 88, 25);
     border-radius: 25px;
     }
 
@@ -27,14 +29,25 @@ body {
     justify-content: space-around;
     align-content: center;
     margin: 0;
-    border-radius: 5px;
+    border-radius: 8px;
+    
 }
 
     #pOne {
-        width: 50px;
-        height: 80px;
+        width: 6.5vw;
+        height: 9vh;
         outline: 2px solid black;
+        box-shadow: 4px 4px 4px;
         grid-row: 1;
+        }
+
+    #pTwo {
+        width: 6.5vw;
+        height: 9vh;
+        outline: 2px solid black;
+        grid-row: 3;
+        grid-column: 3;
+        box-shadow: 4px 4px 4px;
         }
 
         #pointP1 {
@@ -46,7 +59,8 @@ body {
             font-weight: bold;
             color: rgb(255, 255, 255);
             border: 0;
-            margin: 25px;
+            margin-left: 40px;
+            box-shadow: 3px 3px 3px black;
 
         }
         #pointP2 {
@@ -58,40 +72,44 @@ body {
             font-weight: bold;
             color: rgb(255, 255, 255);
             border: 0;
-            transform: translate(-70px, 23px);
+            transform: translate(-80px, 2px);
+            box-shadow: 3px 3px 3px black;
+           
 
         }
 
 
 
     #gameBoard {
-        outline: 2px solid black;
+        outline: 4px outset black;
         width: 52vw;
         height: 52vh;
         grid-row: 2 / span 2;
         grid-column: 2 / span 2;
+        box-shadow: 3px 3px 3px black;
+        border-radius: 5px;
+
         }
         #gameBoardP1 {
-            border-radius: 5px;
+            border-radius: 6px;
             border: 0cap;
             position: absolute;
-
             justify-items: center;
-            width: 51.5vw;
+            width: 50.9vw;
             height: 100px;
             background-color: rgb(17, 3, 147);
             font-family: 'Courier New', Courier, monospace;
             font-size: 15pt;
             font-weight: bold;
             color: rgb(255, 255, 255);
-            
+            border: 4px inset rgb(85, 2, 2);
             }
 
         #gameBoardP2 {
             position: absolute;
             align-self: flex-end;
             justify-items: center;
-            width: 51.5vw;
+            width: 50.9vw;
             border-radius: 5px;
             border: 0cap;
             height: 100px;
@@ -100,6 +118,8 @@ body {
             font-size: 15pt;
             font-weight: bold;
             color: rgb(255, 255, 255);
+            border: 4px inset rgba(10, 2, 87, 0.829);
+
             }
 
         #outcome {
@@ -108,27 +128,37 @@ body {
             justify-self: center;
             justify-items: center;
             height: 30px;
-            border: 0;
+            width: 30vw;
+            border: 2px outset silver;
             background-color: black;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 15pt;
+            font-size: 20pt;
             font-weight: bold;
             color: rgb(255, 255, 255);
-
+            box-shadow: 2px 2px 4px rgb(0, 75, 0);
+            margin-bottom: 2vh;
         }
 
-
-
-    #pTwo {
-        width: 50px;
-        height: 80px;
-        outline: 2px solid black;
-        grid-row: 3;
-        grid-column: 3;
+        #warResult {
+            width: 30vw;
+            margin-top: 1vh;
+            position: absolute;
+            align-self: center;
+            justify-self: center;
+            justify-items: center;
+            transform: translate(0px, 30px);
+            background-color: black;
+            border: 2px outset gold;
+            box-shadow: 3px 3px 4px rgb(104, 89, 3);
+            height: 20px;
+            font-size: 15pt;
+            color:  white;
         }
+        
+    
 #playButton {
-            width: 50px;
-            height: 80px;
+            width: 6.5vw;
+            height: 9vh;
             position: absolute;
             background-color: rgba(41, 184, 41, 0.336);
             border: 0cap;
@@ -147,8 +177,8 @@ body {
             transition-duration: 0s;
             }
 #playButton2 { 
-            width: 50px;
-            height: 80px;
+            width: 6.5vw;
+            height: 9vh;
             position: absolute;
             background-color: rgba(41, 184, 41, 0.336);
             border: 0cap;
