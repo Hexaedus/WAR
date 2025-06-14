@@ -3,34 +3,57 @@ let boardP2 = document.getElementById("gameBoardP2");
 
 let p1Deck = [];
 let p2Deck = [];
+let mainDecks = [];
 
 let gameStarted = false;
+// const = generateDeck(mainDecks);
 
-function generateDeck(playerDeck){
-    for (let i = 0; i < 26; i++)
-    {
-        playerDeck[i] = returnRandomValue();
+// function generateDeck(playerDeck){
+//     for (let i = 0; i < 26; i++)
+//     {
+//         playerDeck[i] = returnRandomValue();
+//     }
+// }
+
+
+function generateDeck(mainDeck){
+    for (let i =0; i < 52; i++) {
+        mainDeck[i] = returnRandomValue();
+        return generateDeck(startGame);
     }
-}
+ }
 
 function returnRandomValue(){
     return Math.floor(Math.random() * 51) + 1;
 }
 
-function startGame()
-{
+// const = generateDeck;
+
+
+// function startGame()
+// {
+//     if (!gameStarted){
+//         generateDeck(p1Deck);
+//         generateDeck(p2Deck);
+//         console.log("p1; " + p1Deck);
+//         console.log("p2; " + p2Deck);
+//         gameStarted = true;
+//     }
+// }
+
+function startGame() {
+   const decky = generateDeck;
     if (!gameStarted){
-        generateDeck(p1Deck);
-        generateDeck(p2Deck);
-        console.log("p1; " + p1Deck);
-        console.log("p2; " + p2Deck);
+        generateDeck(mainDecks);
+        console.log("main; " + mainDecks + decky);
         gameStarted = true;
     }
+    generateDeck(mainDecks.length);
 }
 
-function returnRandomDeckIndex(deck){//parameter for use within this function only
+function returnRandomDeckIndex(deck) { // parameter for use within this function only
     let randomIndex = Math.floor(Math.random() * (deck.length - 1));
-    return randomIndex//the output of the function
+    return randomIndex// the output of the function
 }
 
 function startRound() {  
@@ -135,6 +158,11 @@ function runTests() {
     test("No Winner", () => {
         assertEquals(endState(36), "no winner");
     });
+
+    // test("Main Deck Check", () => {
+    //     assertEquals()
+    // }
+        
     
     console.log(`\nSummary: ${passed} passed, ${failed} failed`);
 }
