@@ -103,21 +103,21 @@ function pointSystem() {//void return
 
 // Test Harness
 function runTests() {
-    let passed = 0;
+    let passed = 0;// let because it can change
     let failed = 0;
     
-    function test(name, fn) {
+    function test(name, fn) {// test name, test function?
         try {
-            fn();
+            fn(); // uses the test() below to check, log, and say whether it was passed
             console.log(`✓ ${name}`);
             passed++;
-        } catch (error) {
+        } catch (error) { // like an else statement???
             console.log(`✗ ${name}: ${error.message}`);
             failed++;
         }
     }
     
-    function assertEquals(actual, expected) {
+    function assertEquals(actual, expected) {// this function runs itself through the function above but is listed lower due to the logic abovee
         if (actual !== expected) {
             throw new Error(`Expected ${expected}, got ${actual}`);
         }
